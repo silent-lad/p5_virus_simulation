@@ -1,0 +1,13 @@
+body {
+  padding: 10px;
+  background: #262626;
+  color: white;
+}
+
+#healthy {
+  color: green;
+}
+
+#virus {
+  color: red;
+}

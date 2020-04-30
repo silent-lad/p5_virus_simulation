@@ -13,8 +13,7 @@ class Person {
 
   render() {
     ellipse(this.pos.x, this.pos.y, this.size);
-    square(this.destinationX, this.destinationY, this.size);
-    // square(30, 20, 55);
+    // square(this.destinationX, this.destinationY, this.size);
   }
 
   move() {

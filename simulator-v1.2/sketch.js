@@ -5,9 +5,11 @@ const height = 400;
 
 const persons = [];
 
+const initialPopulation = 1;
+
 function setup() {
   createCanvas(width, height);
-  for (let i = 1; i < 10; i++) {
+  for (let i = 0; i < initialPopulation; i++) {
     persons.push(new Person(width, height));
   }
 }

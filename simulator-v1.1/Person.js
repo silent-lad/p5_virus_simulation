@@ -1,10 +1,9 @@
 "use strict";
 
 class Person {
-  constructor(canvas) {
-    this.pos = startLocation(canvas.x, canvas.y);
+  constructor(canvasWidth, canvasHeight) {
+    this.pos = startLocation(canvasWidth, canvasHeight);
     this.speed = 1;
-    this.canvas = canvas;
     this.size = 10;
   }
 
@@ -13,22 +12,16 @@ class Person {
   }
 
   move() {
-    this.pos = new Coordinate(
-      this.pos.x + (Math.random() * (2 * this.speed) - this.speed),
-      this.pos.y + (Math.random() * (2 * this.speed) - this.speed)
-    );
+    this.pos.x = this.pos.x + (Math.random() * (2 * this.speed) - this.speed);
+    this.pos.y = this.pos.y + (Math.random() * (2 * this.speed) - this.speed);
   }
 }
 
-function hitBoundary(person, axis) {
-  return (
-    person.pos[axis] > person.canvas[axis] - person.size ||
-    person.pos[axis] < person.size
-  );
-}
-
 function startLocation(x, y) {
-  return new Coordinate(randRange(x, 5), randRange(y, 5));
+  return {
+    x: randRange(x, 5),
+    y: randRange(y, 5),
+  };
 }
 
 function randRange(max, min) {
@@ -40,5 +33,8 @@ function rand(constraint) {
 }
 
 function randCoordinate() {
-  return new Coordinate(rand(2), rand(2));
+  return {
+    x: rand(2),
+    y: rand(2),
+  };
 }
